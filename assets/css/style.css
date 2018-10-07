@@ -1,0 +1,11 @@
+body{
+    background-color: rgba(213, 177, 247, 0.288);
+}
+.banner{
+    width: auto;
+    max-height: 200px;
+}
+.align-self-end {
+    height: 175px;
+    width: 175px;
+}
