@@ -20,78 +20,62 @@
     <img class="banner p-0 m-0" src="../unit-4-game/assets/images/banner.jpg" alt="banner">
   </div>
 
-  <div class="container">
+  <div class="container m-2">
 
-    <div class="row p-3">
-        <p class="lead col-12">Oh Snap! Your mom gave you some $$$ to go buy some treats!</p>
+   
+<!-- Directions -->
+<span class="p-3 row">
+        <h5 class="lead col-12 text-primary px-0 py-2">Woot! Your mom gave you some $$$ to go buy treats!</h5>
         <p>Go to the Goody Store and buy yourself some sweets.</p>
-        <p>Each treat costs a different amount. Get as much as you can without going over your allowance.</p>
-        <p>Contrary to popular belief the store owner is a grumpy old man who will take away all the candy and your allowance if you go over...</p>
+        <h4>The Rules:</h4>
+        <p>Each treat costs a different amount. Get as much as you can without going over your allowance. The amounts change with each new allowance you get.</p>
+        <p>Contrary to popular belief the store owner is a grumpy old lady who will take away all the candy and your allowance if you go over...</p>
+    </span>
+
+    <div  id= "loseMessage" class="row">
+        <img id="loserKids" class="col-6" src="../unit-4-game/assets/images/old lady.jpg" alt="">
     </div>
+
+    <div  id= "winMessage" class="row">
+            <img id="winKid" class="col-6" src="../unit-4-game/assets/images/My Post (6).jpg" alt="">
+        </div>
+
 
     <div class="row">
 
-        <!-- <div class="col-lg-4">
-            <div class="card">
-              <h3 class="card-header">Calculator</h3>
-    
-              <div class="card-body">
-                <button id="button-1" class="btn btn-primary number" value="1"><h1>1</h1></button>
-                <button id="button-2" class="btn btn-primary number" value="2"><h1>2</h1></button>
-                <button id="button-3" class="btn btn-primary number" value="3"><h1>3</h1></button>
-                <button id="button-plus" class="btn btn-danger operator" value="plus"><h1>+</h1></button>
-                <br><br>
-                <button id="button-4" class="btn btn-primary number" value="4"><h1>4</h1></button>
-                <button id="button-5" class="btn btn-primary number" value="5"><h1>5</h1></button>
-                <button id="button-6" class="btn btn-primary number" value="6"><h1>6</h1></button>
-                <button id="button-minus" class="btn btn-danger operator" value="minus"><h1>&minus;</h1></button>
-                <br><br>
-                <button id="button-7" class="btn btn-primary number" value="7"><h1>7</h1></button>
-                <button id="button-8" class="btn btn-primary number" value="8"><h1>8</h1></button>
-                <button id="button-9" class="btn btn-primary number" value="9"><h1>9</h1></button>
-                <button id="button-multiply" class="btn btn-danger operator" value="times"><h1>&times;</h1></button>
-                <br><br>
-                <button id="button-0" class="btn btn-primary number" value="0"><h1>0</h1></button>
-                <button id="button-divide" class="btn btn-danger operator" value="divide"><h1>&divide;</h1></button>
-                <button id="button-power" class="btn btn-danger operator" value="power"><h1>^</h1></button>
-                <button id="button-equal" class="btn btn-success equal" value="equals"><h1>=</h1></button>
-                <br><br>
-                <button id="button-clear" class="btn btn-dark clear" value="clear"><h1>clear</h1></button>
-              </div>
-            </div>
-          </div> -->
-    
-
-      <div class="col-lg-4">
-        <div class="card">
+      <div class="col-12">
+        <div class="card mx-auto">
           <h3 class="card-header">Goody Store</h3>
 
-          <div class="card-body">
+          <div class="card-body candyCard">
 
             <!-- candies to click -->
           <div class="media candies donuts p-2">
-                <img id= "button-donuts" class="btn candyButton align-self-end rounded mx-auto " value="1" src="../unit-4-game/assets/images/donuts.jpg" alt="Generic placeholder image">
-          </div>
+                <img id= "button-donuts" class="btn candyButton mx-auto" value="1" src="../unit-4-game/assets/images/donuts.jpg" alt="Generic placeholder image">
+                <img id= "button-chocolate" class="btn candyButton mx-auto" value="2" src="../unit-4-game/assets/images/Chocolate.jpg" alt="Generic placeholder image">
+                <img id= "button-gummyBears" class="btn candyButton align-self-end mx-auto" src="../unit-4-game/assets/images/gummyBears.jpg" alt="Generic placeholder image">
+                <img id= "button-popsicle" class="btn candyButton align-self-end mx-auto" src="../unit-4-game/assets/images/popsicle.jpg" alt="Generic placeholder image">
+            </div>
 
-          <div class="media candies chocolate p-2">
-                <img id= "button-chocolate" class="btn candyButton align-self-end mx-auto" value="2" src="../unit-4-game/assets/images/Chocolate.jpg" alt="Generic placeholder image">
+          <!-- <div class="media candies chocolate p-2">
+                
           </div>
 
           <div class="media candies gummyBears p-2">
-                <img id= "button-gummyBears" class="btn candyButton align-self-end mx-auto" src="../unit-4-game/assets/images/gummyBears.jpg" alt="Generic placeholder image">
+               
           </div>
 
           <div class="media candies popsicle p-2">
-                <img id= "button-popsicle" class="btn candyButton align-self-end mx-auto" src="../unit-4-game/assets/images/popsicle.jpg" alt="Generic placeholder image">
-          </div>
-       
+                
+          </div> -->
+        </div>
           </div>
         </div>
       </div>
-
+        <div class="row">
       <!-- Bill Card -->
-      <div class="col-lg-4">
-        <div class="card">
+      <div>
+        <div class="card m-2">
           <h3 class="card-header">Your Bill</h3>
           <div class="card-body">
             <!-- <h1 id="first-number"></h1>
@@ -105,8 +89,8 @@
 
 
             <!-- Allowance Card -->
-            <div class="col-lg-4">
-                    <div class="card">
+            <div>
+                    <div class="card m-2">
                       <h3 class="card-header">Your Allowance</h3>
                       <div class="card-body">
                         <!-- <h1 id="first-number"></h1>
@@ -119,7 +103,21 @@
                   </div>
 
 
-    </div>
+                  <!-- wins/losses -->
+            <div>
+                    <div class="card m-2">
+                      <h3 class="card-header">Score Sheet</h3>
+                      <div class="card-body">
+                          <h1>Wins:</h1><h1 id="wins"></h1>
+                        <h1>Losses:</h1>
+                        <h1 id="losses"></h1>
+                        
+                      </div>
+                    </div>
+                  </div>
+
+                </div> <!--/Row div-->
+  
   </div>
 
   

@@ -1,169 +1,116 @@
+$(document).ready(function () {
+
+    // Make our variables global to the runtime of our application
+   
+    var result = 0;
+    var wins = 0;
+    var losses = 0;
+   
+
+    $("#loseMessage").hide();
+    $("#winMessage").hide();
 
 
-    $(document).ready(function() {
-
-      // Make our variables global to the runtime of our application
-      var firstNumber = 0;
-      var secondNumber = 0;
-      var operator = "";
-      var result = 0;
-      var isOperatorChosen = false;
-      var isCalculated = false;
 
 
-     
-
-      // Use a function to initialize our calculator.
-      // This way when the user hits clear, we can guarantee a reset of the app.
-      function initializeCalculator() {
-        firstCandy = Math.floor(Math.random() * 12);
-        secondCandy = Math.floor(Math.random() * 12);
-        thirdCandy = Math.floor(Math.random() * 12);
-        fourthCandy = Math.floor(Math.random() * 12);
-        allowance = Math.floor(Math.random() * 120);
+    // Use a function to initialize our calculator.
+    // This way when the user hits clear, we can guarantee a reset of the app.
+    function initializeCalculator() {
+        firstCandy = Math.floor((Math.random() * 12) + 1);
+        secondCandy = Math.floor((Math.random() * 12) + 1);
+        thirdCandy = Math.floor((Math.random() * 12) + 1);
+        fourthCandy = Math.floor((Math.random() * 12) +1);
+        allowance = Math.floor((Math.random() * 120) + 19);
 
         $("#allowance").text(allowance);
         result = 0;
 
-        console.log(firstCandy, secondCandy,thirdCandy,fourthCandy);
-        // firstNumber = "";
-        // secondNumber = "";
-        operator = "";
-        isOperatorChosen = false;
-        isCalculated = false;
+        console.log(firstCandy, secondCandy, thirdCandy, fourthCandy);
+
+        // operator = "";
+        // isOperatorChosen = false;
+        // isCalculated = false;
 
         // $("#first-number, #second-number, #operator, #result").empty();
-    
-      }
-    
-      $("#button-donuts").on("click", function() {
-          result+=firstCandy;
-         console.log(result);
-         $("#yourTotal").text(result);
-         if (result > allowance){
-            console.log("loser");
-            initializeCalculator();
-            $("#yourTotal").text("");
+
+    }
+
+    function winScript () {
+        console.log("Winner!");
+        initializeCalculator();
+        $("#yourTotal").text("");
+        wins++;
+        $("#wins").text(wins);   
+        $("#winMessage").fadeIn(2000);
+        $("#winMessage").delay(2000);
+        $("#winMessage").fadeOut(2000);
+    }
+
+    function loseScript() {
+        console.log("loser");
+        initializeCalculator();
+        $("#yourTotal").text("");
+        losses++;
+        $("#losses").text(losses);
+        $("#loseMessage").fadeIn(2000);
+        $("#loseMessage").delay(2000);
+        $("#loseMessage").fadeOut(2000);
+        
+    }
+
+    $("#button-donuts").on("click", function () {
+        result += firstCandy;
+        $("#yourTotal").text(result);
+
+        if(result === allowance){
+            winScript();
         }
-      });
-      $("#button-chocolate").on("click", function() {
-        result+=secondCandy;
-       console.log(result);
-       $("#yourTotal").text(result);
-       if (result > allowance){
-        console.log("loser");
-        initializeCalculator();
-        $("#yourTotal").text("");
-    }
-    });
-    $("#button-gummyBears").on("click", function() {
-        result+=thirdCandy;
-       console.log(result);
-       $("#yourTotal").text(result);
-       if (result > allowance){
-        console.log("loser");
-        initializeCalculator();
-        $("#yourTotal").text("");
-    }
-    });
-    $("#button-popsicle").on("click", function() {
-        result+=fourthCandy;
-       console.log(result);
-       $("#yourTotal").text(result);
-       if (result > allowance){
-        console.log("loser");
-        initializeCalculator();
-        $("#yourTotal").text("");
-    }
+
+        else if (result > allowance) {
+            loseScript();
+        }
     });
 
+    $("#button-chocolate").on("click", function () {
+        result += secondCandy;
 
-    if (result > allowance){
-        console.log(loser);
-    }
-    
+        console.log(result);
+        $("#yourTotal").text(result);
+        if(result === allowance){
+            winScript();
+            }
 
-    //   $(".number").on("click", function() {
-
-    //     // Check if we've already run a calculation, if so... we'll just.
-    //     if (isCalculated) {
-    //       return false;
-    //     }
-
-    //     // If operator is chosen, we should be writing the secondNumber, otherwise, the firstNumber
-    //     if (isOperatorChosen) {
-    //       secondNumber += $(this).val();
-    //       $("#second-number").text(secondNumber);
-
-    //     }
-    //     else {
-    //       firstNumber += $(this).val();
-    //       $("#first-number").text(firstNumber);
-    //     }
-
-    //   });
-    //   $(".operator").on("click", function() {
-
-    //     // Check if a first number has already been selected
-    //     // Or we've already run a calculation, if so we just exit.
-    //     if (!firstNumber || isCalculated) {
-    //       return false;
-    //     }
-
-    //     // Set isOperatorChosen to true so we start writing to secondNumber
-    //     isOperatorChosen = true;
-
-    //     // Store off the operator
-    //     operator = $(this).val();
-
-    //     // Set the HTML of the #operator to the text of what was clicked
-    //     $("#operator").text($(this).text());
-
-    //   });
-    //   $(".equal").on("click", function() {
-
-    //     // If we already clicked equal, don't do the calculation again
-    //     if (isCalculated) {
-    //       return false;
-    //     }
-
-    //     // Set isCalculated to true so that we don't get in a weird UI state by clicking buttons again
-    //     isCalculated = true;
-
-    //     // Use parseInt to convert our string representation of numbers into actual integers
-    //     firstNumber = parseInt(firstNumber);
-    //     secondNumber = parseInt(secondNumber);
-
-    //     // Based on the operator that was chosen.
-    //     // Then run the operation and set the HTML of the result of that operation
-    //     if (operator === "plus") {
-    //       result = firstNumber + secondNumber;
-    //     }
-
-    //     else if (operator === "minus") {
-    //       result = firstNumber - secondNumber;
-    //     }
-
-    //     else if (operator === "times") {
-    //       result = firstNumber * secondNumber;
-    //     }
-
-    //     else if (operator === "divide") {
-    //       result = firstNumber / secondNumber;
-    //     }
-
-    //     else if (operator === "power") {
-    //       result = Math.pow(firstNumber, secondNumber);
-    //     }
-
-    //     $("#result").text(result);
-
-    //   });
-    //   $(".clear").on("click", function() {
-
-    //   });
-
-      // Call initializeCalculater so we can set the state of our app
-      initializeCalculator();
+        else if (result > allowance) {
+        loseScript();
+        }
     });
 
+    $("#button-gummyBears").on("click", function () {
+        result += thirdCandy;
+
+        console.log(result);
+        $("#yourTotal").text(result);
+        if(result === allowance){
+        winScript();
+        }
+
+        else if (result > allowance) {
+        loseScript();
+        }
+    });
+    $("#button-popsicle").on("click", function () {
+        result += fourthCandy;
+
+        console.log(result);
+        $("#yourTotal").text(result);
+        if(result === allowance){
+        winScript();
+        }
+        else if (result > allowance) {
+        loseScript();
+        }
+    });
+
+
+    initializeCalculator();
+});

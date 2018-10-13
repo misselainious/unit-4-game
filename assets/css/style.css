@@ -1,11 +1,28 @@
 body{
     background-color: rgba(213, 177, 247, 0.288);
 }
-.banner{
-    width: auto;
-    max-height: 200px;
+.jumbotron{
+    background-color: #76b5f0;
 }
-.align-self-end {
+.banner{
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    align-content: center;
+}
+.media{
+    clear: both;
+}
+.candyCard{
+    background-color: #aafaae62;
+}
+#loserKids,
+#winKid{
+    height: 333px;
+    width: 500px;
+    margin: auto;
+}
+.candyButton {
     height: 175px;
     width: 175px;
 }
